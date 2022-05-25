@@ -1,0 +1,332 @@
+import React from "react";
+
+function App_1() {
+  return <X2LightCarousel1 focusWithFriendsOnTeahub="Focus with friends on TeaHub" button="Next" />;
+}
+
+export default App_1;
+
+function X2LightCarousel1(props) {
+  const { focusWithFriendsOnTeahub, button } = props;
+
+  return (
+    <div className="container-center-horizontal">
+      <div className="x2-light-carousel-1screen">
+        <TypeDefaultComponentTopBar />
+        <img className="frame" src="frame.svg" />
+        <div className="auto-layout-vertical">
+          <h1 className="titlevalign-text-middle">
+            {focusWithFriendsOnTeahub}
+          </h1>
+          <div className="auto-layout-horizontal">
+            <div className="rectangle-1"></div>
+            <div className="rectangle"></div>
+            <div className="rectangle"></div>
+          </div>
+          <div className="type-button-type-2-p">
+            <div className="buttonvalign-text-middle">
+              {button}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TypeDefaultComponentTopBar() {
+  return (
+    <div className="type-default-component-top-bar">
+      <div className="text-1valign-text-middle">
+        9:41
+      </div>
+      <div className="group"></div>
+      <div className="group-1"></div>
+      <img className="group-2" src="group.svg" />
+    </div>
+  );
+}
+
+function App_2() {
+    return (
+      <X2LightCarousel2
+        createYourAccount="Create your account"
+        eMail="E-mail"
+        password="Password"
+        orContinueWith="or continue with"
+        google="google.png"
+        iconFacebook="facebook.png"
+        typeButtonType2PrimaryType3RoundedS={x2LightCarousel2Data.typeButtonType2PrimaryType3RoundedS}
+      />
+    );
+  }
+  
+  export default App_2;
+  
+  function X2LightCarousel2(props) {
+    const { createYourAccount, eMail, password, orContinueWith, google, iconFacebook, typeButtonType2PrimaryType3RoundedS } = props;
+  
+    return (
+      <div className="container-center-horizontal">
+        <div className="x2-light-carousel-2screen">
+          <div className="flex-col">
+            <TypeDefaultComponentTopBar />
+            <img className="theme-light-component-navbar" src="theme-light-component-navbar-1.svg" />
+            <h1 className="titlevalign-text-middle">
+              {createYourAccount}
+            </h1>
+            <div className="overlap-group">
+              <div className="rectangle"></div>
+              <div className="e-mailvalign-text-middleurbanist-medium-black-20px">
+                {eMail}
+              </div>
+              <img className="at-solid-1" src="at-solid-1.svg" />
+            </div>
+            <div className="overlap-group1">
+              <div className="rectangle"></div>
+              <div className="passwordvalign-text-middleurbanist-medium-black-20px">
+                {password}
+              </div>
+              <img className="key-solid-1" src="key-solid-1.svg" />
+            </div>
+            <TypeButtonType2PrimaryType3RoundedS>
+              {typeButtonType2PrimaryType3RoundedS.children}
+            </TypeButtonType2PrimaryType3RoundedS>
+            <div className="or-continue-withvalign-text-middle">
+              {orContinueWith}
+            </div>
+          </div>
+          <div className="flex-row">
+            <img className="google" src={google} />
+            <img className="facebook" src={iconFacebook} />
+            <img className="apple" src="apple.svg" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  function TypeDefaultComponentTopBar() {
+    return (
+      <div className="type-default-component-top-bar">
+        <div className="text-1valign-text-middle">
+          9:41
+        </div>
+        <div className="group"></div>
+        <div className="group-1"></div>
+        <img className="group-2" src="group.svg" />
+      </div>
+    );
+  }
+  
+  function TypeButtonType2PrimaryType3RoundedS(props) {
+    const { children } = props;
+  
+    return (
+      <div className="type-button-type-2-p">
+        <div className="nextvalign-text-middle">
+          {children}
+        </div>
+      </div>
+    );
+  }
+  
+  const typeButtonType2PrimaryType3RoundedSData = {
+    children: "Next",
+  };
+  
+  const x2LightCarousel2Data = {
+    createYourAccount: "Create your account",
+    eMail: "E-mail",
+    password: "Password",
+    orContinueWith: "or continue with",
+    google: "google.png",
+    iconFacebook: "facebook.png",
+    typeButtonType2PrimaryType3RoundedS: typeButtonType2PrimaryType3RoundedSData,
+  };
+
+  function App_3() {
+    return (
+      <X2LightCarousel3
+        fillYourProfile="Fill your Profile"
+        fullName="Full Name"
+        nickname="Nickname"
+        phoneNumber="Phone Number"
+        typeButtonType2PrimaryType3RoundedS={x2LightCarousel3Data.typeButtonType2PrimaryType3RoundedS}
+      />
+    );
+  }
+  
+  export default App_3;
+  
+  function X2LightCarousel3(props) {
+    const { fillYourProfile, fullName, nickname, phoneNumber, typeButtonType2PrimaryType3RoundedS } = props;
+  
+    return (
+      <div className="container-center-horizontal">
+        <div className="x2-light-carousel-3screen">
+          <TypeDefaultComponentTopBar />
+          <div className="overlap-group4">
+            <h1 className="titlevalign-text-middle">
+              {fillYourProfile}
+            </h1>
+            <img className="theme-light-component-navbar" src="theme-light-component-navbar-1.svg" />
+          </div>
+          <div className="overlap-group3">
+            <img className="person" src="person.svg" />
+          </div>
+          <div className="overlap-group2">
+            <div className="rectangle-1"></div>
+            <div className="full-namevalign-text-middleurbanist-medium-black-20px">
+              {fullName}
+            </div>
+          </div>
+          <div className="overlap-group1">
+            <div className="rectangle-2"></div>
+            <div className="nicknamevalign-text-middleurbanist-medium-black-20px">
+              {nickname}
+            </div>
+          </div>
+          <div className="overlap-group">
+            <div className="rectangle-3"></div>
+            <div className="phone-numbervalign-text-middleurbanist-medium-black-20px">
+              {phoneNumber}
+            </div>
+          </div>
+          <TypeButtonType2PrimaryType3RoundedS>
+            {typeButtonType2PrimaryType3RoundedS.children}
+          </TypeButtonType2PrimaryType3RoundedS>
+        </div>
+      </div>
+    );
+  }
+  
+  function TypeDefaultComponentTopBar() {
+    return (
+      <div className="type-default-component-top-bar">
+        <div className="text-1valign-text-middle">
+          9:41
+        </div>
+        <div className="group"></div>
+        <div className="group-1"></div>
+        <img className="group-2" src="group.svg" />
+      </div>
+    );
+  }
+  
+  function TypeButtonType2PrimaryType3RoundedS(props) {
+    const { children } = props;
+  
+    return (
+      <div className="type-button-type-2-p">
+        <div className="placevalign-text-middle">
+          {children}
+        </div>
+      </div>
+    );
+  }
+  
+  const typeButtonType2PrimaryType3RoundedSData = {
+    children: "Start",
+  };
+  
+  const x2LightCarousel3Data = {
+    typeButtonType2PrimaryType3RoundedS: typeButtonType2PrimaryType3RoundedSData,
+  };
+
+  function App_4() {
+    return <X2LightCarousel4 {...x2LightCarousel4Data} />;
+  }
+  
+  export default App_4;
+  
+  function X2LightCarousel4(props) {
+    const { title, eMail, password, rememberMe, orContinueWith, google, iconFacebook, typeButtonType2PrimaryType3RoundedS } = props;
+  
+    return (
+      <div className="container-center-horizontal">
+        <div className="x2-light-carousel-4screen">
+          <div className="flex-col">
+            <TypeDefaultComponentTopBar />
+            <img className="theme-light-component-navbar" src="theme-light-component-navbar.svg" />
+            <h1 className="titlevalign-text-middle">
+              {title}
+            </h1>
+            <div className="overlap-group">
+              <div className="rectangle-1"></div>
+              <div className="e-mailvalign-text-middleurbanist-medium-black-20px">
+                {eMail}
+              </div>
+            </div>
+            <div className="overlap-group1">
+              <div className="rectangle-2"></div>
+              <div className="passwordvalign-text-middleurbanist-medium-black-20px">
+                {password}
+              </div>
+            </div>
+            <div className="overlap-group2">
+              <div className="remember-mevalign-text-middle">
+                {rememberMe}
+              </div>
+              <Rectangle4 />
+            </div>
+            <TypeButtonType2PrimaryType3RoundedS>
+              {typeButtonType2PrimaryType3RoundedS.children}
+            </TypeButtonType2PrimaryType3RoundedS>
+            <div className="or-continue-withvalign-text-middle">
+              {orContinueWith}
+            </div>
+          </div>
+          <div className="flex-row">
+            <img className="google" src={google} />
+            <img className="facebook" src={iconFacebook} />
+            <img className="apple" src="apple.svg" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  function TypeDefaultComponentTopBar() {
+    return (
+      <div className="type-default-component-top-bar">
+        <div className="text-1valign-text-middle">
+          9:41
+        </div>
+        <div className="group"></div>
+        <div className="group-1"></div>
+        <img className="group-2" src="group.svg" />
+      </div>
+    );
+  }
+  
+  function Rectangle4() {
+    return <div className="rectangle-4"></div>;
+  }
+  
+  function TypeButtonType2PrimaryType3RoundedS(props) {
+    const { children } = props;
+  
+    return (
+      <div className="type-button-type-2-p">
+        <div className="sign-invalign-text-middle">
+          {children}
+        </div>
+      </div>
+    );
+  }
+  
+  const typeButtonType2PrimaryType3RoundedSData = {
+    children: "Sign In",
+  };
+  
+  const x2LightCarousel4Data = {
+    title: "Login to your account",
+    eMail: "E-mail",
+    password: "Password",
+    rememberMe: "Remember me",
+    orContinueWith: "or continue with",
+    google: "google.png",
+    iconFacebook: "facebook.png",
+    typeButtonType2PrimaryType3RoundedS: typeButtonType2PrimaryType3RoundedSData,
+  };
