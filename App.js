@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import Auth from './components/Auth'
 import Account from './components/Account'
-import { View } from 'react-native'
 import { Session } from '@supabase/supabase-js'
 import React from 'react'
+import { View, Text, Image, ScrollView, StyleSheet, Dimensions } from "react-native";
+import { Svg, Path } from "react-native-svg";
 
 export default function App() {
-  const [session, setSession] = useState<Session | null>(null)
+  const [session, setSession] = useState(null)
 
   useEffect(() => {
     setSession(supabase.auth.session())

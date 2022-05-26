@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Svg, Path } from "react-native-svg";
 
+
 import {
 useFonts,
 } from "@expo-google-fonts/dev";
@@ -1426,4 +1427,3 @@ const stylesheet = StyleSheet.create({
 		],
 	},
 });
-
