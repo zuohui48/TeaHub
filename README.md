@@ -38,7 +38,7 @@ Features to be completed by the **mid of June**:
 
 User interface with these core features:
 
-**1. Create Account/ Log in and Log out **
+**1. Create Account/ Log in and Log out**
 Users can create an account with their email accounts 
 Get a verification code in email to create account
 
