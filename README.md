@@ -9,7 +9,7 @@ Many students regret not studying hard enough after receiving their results at t
 
 And when students are productive and are able to finish their work ahead of the planned time, it is counter-intuitive to be penalized for it. It may serve as a deterrent to those who severely lack focus and commitment to getting work done, but it does not reward those who are more focused and productive.
 
-**Aim **
+**Aim**
 
 As many students find themselves zoning off 1 hour into lectures and start using their phones, we aim to increase the levels of concentration for students. Students will also gain a sense of achievement from achieving the goals that they set. 
 
@@ -55,12 +55,12 @@ Features to be completed by the **mid of July**:
 **1. Shop system**
 A shop where users can purchase new bubble tea/ try their luck at for limited edition bubble tea
 
-**2. Focus Together **
+**2. Focus Together**
 Friends create and join a room and everyone in the room have to stay focused for the same duration set by the host. 
 
 
 
-Tech Stack
+**Tech Stack**
 
 [Please list down the technologies that you are planning to use.]
 1. React Native (Front End) 
