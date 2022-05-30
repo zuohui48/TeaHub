@@ -52,10 +52,15 @@ The user can log out of the current account. An account can be deleted, and the 
 
 An email account can only be associated with 1 TeaHub account. 
 ![image_2022-05-30_14-50-23](https://user-images.githubusercontent.com/83281769/170939183-2f88bbd9-0267-4be6-a121-ce16a18e718a.png)
+
 Sign up with an email and password 
+
 ![Screenshot 2022-05-30 at 2 50 51 PM](https://user-images.githubusercontent.com/83281769/170939200-4b3fdbb8-98ab-4b2d-9ee0-055127141228.png)
+
 Go to the email and click on the confirmation link 
+
 ![simulator_screenshot_129C1D6E-A695-4B1B-ABC6-7E8409CAB864](https://user-images.githubusercontent.com/83281769/170939205-196c6396-f8c3-4f9f-873e-dd24cd32b3f7.png)
+
 Update account deails 
 
 Ordering (Setting the timer) 
