@@ -4,7 +4,7 @@
 
 TeaHub
 
-**Proposed Level of Achievement: **
+**Proposed Level of Achievement:**
 
 Apollo 11 
 
@@ -53,7 +53,7 @@ The user can log out of the current account. An account can be deleted, and the 
 An email account can only be associated with 1 TeaHub account. 
 
 
-![alt text](https://drive.google.com/drive/u/0/folders/1_u42-wYGKb42nKIIn3TSmuCExh2JLY25)
+![alt text](https://imgur.com/a/Ara6eDO)
 Figure 1: Login/Account creation screen for TeaHub
 
 
