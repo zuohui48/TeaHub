@@ -1,68 +1,139 @@
-# TeaHub
-Orbital 2022
+**Milestone I Submission**
 
-Team Name: TeaHub
+**Team Name:**
 
-**Motivation** 
+TeaHub
 
-Many students regret not studying hard enough after receiving their results at the end of the same. However, they lack the discipline to stay focused during the semester and often find themselves unable to stay focused or procrastinate their work. If only there exists an app where students are able gain a sense of achievement from focusing and completing their work. An all in one focus app where students can set a duration to stay focused and not use their phones for that duration and get rewarded with limited edition collectables. 
+**Proposed Level of Achievement: **
 
-And when students are productive and are able to finish their work ahead of the planned time, it is counter-intuitive to be penalized for it. It may serve as a deterrent to those who severely lack focus and commitment to getting work done, but it does not reward those who are more focused and productive.
+Apollo 11 
+
+**Motivation**
+
+Many students regret not studying hard enough after receiving their results at the end of the semester. However, they lack the discipline to stay focused during the semester and often find themselves unable to stay focused or procrastinate their work. We hope to help students concentrate and study better by creating an app called TeaHub where students are able to gain a sense of achievement from focusing and completing their work. 
+
+In the process of developing TeaHub, we hope to gain knowledge of mobile app development, frontend and backend development and mastery in various programming languages. 
+
+As we believe that peer pressure can push students to work harder, TeaHub aims to promote healthy competition among friends to encourage students to study. We hope that students using TeaHub are able to improve their grades through focusing during their study time and gain a sense of accomplishment through looking at their progress. 
 
 **Aim**
 
-As many students find themselves zoning off 1 hour into lectures and start using their phones, we aim to increase the levels of concentration for students. Students will also gain a sense of achievement from achieving the goals that they set. 
+TeaHub will be a mobile app that discourages users from using their mobile phone for the duration that they set.
 
-We aim to integrate a rewards system where users can exchange the points they earned through staying focused into tangible rewards. This will further incentivise students to use the app while studying to help them stay focused. 
+As many students find themselves zoning off 1 hour into lectures and start using their phones, TeaHub aims to help students stay concentrated when attending classes or when they are studying. 
+
+TeaHub aims to let users gain a sense of achievement after they have accomplished the goal they have set for themselves in the beginning, (i.e. not using their phone for the duration that they have set) through various reward systems.
+
+.
 
 **User Stories**
 
-1. As a student who is revising for exams, I want to be able to set a timer for myself to stay focused, and reward myself for being focused and productive. If I can complete my tasks more quickly, I will not be penalized. 
-
-2. As a student studying with my friends taking the same module, I want to be able to stay focused together with my friends, setting the same timer for all of us. All of us will be rewarded together if we finish our timers, thus I am motivated to stay focused for as long as my friends are getting work done.
 
 
-**Features and Timeline**
+1. As a student who is revising for exams, I want to be able to set a timer for myself to stay focused, and reward myself for being focused and productive. 
+2. As a student who has completed my study goals for the day, I want to be rewarded with incentives to stay motivated. 
+3. As a student studying with my friends, I want to stay focused together with my friends while studying and make sure no one gets distracted by our phones.
+4. As a student with friends, I want to remind my friends if I see that they are lagging behind in their studies. 
+5. As a student, I want an app that helps to keep track of my To-Dos.
+6. As a student, I want to know how long I have stayed focused for at the end of a day. 
+7. As a student, I want to know how much time my friends stay focused for in a day. 
 
-A virtual Cup of Bubble tea that slowly gets filled up as the timer goes on, to motivate users to stay focused and look forward to their rewards upon completing the required number of sessions. 
+**Features**
 
-A **Leaderboard** will display the number of points earned by you and your friends. You will be able to compete with your friends to see who stayed focused longer in the week!
+User Account
 
-An **Add-friends** feature that will allow users to have focus sessions with friends. There will be multipliers that will increase the points for group sessions, encouraging users to bring friends along to get work done, and be rewarded accordingly for their efforts.
+Our users have to create an account with their email address in order to use TeaHub. 
 
-A **Focus Together** feature where you and your friend(s) can join a room and everyone in the room will stay focused for the same duration. Gain bonus points if everyone stays focused till the end!
+An email with a verification link will be sent to the email address. Upon clicking on the verification link, the user’s email will be verified and the account is successfully created. 
 
-A **Gacha** feature where users are able spend their points and collect new bubble tea flavors. There is also a limited edition flavor every month so users will be motivated to gain enough points to collect the limited edition flavor. 
+The user will be able to set their username and upload a profile picture. Account details such as password, username and profile picture can be updated after account creation. 
 
-Features to be completed by the **mid of June**: 
+The user can log out of the current account. An account can be deleted, and the user will be automatically logged out after account deletion. 
+
+An email account can only be associated with 1 TeaHub account. 
+
+
+![alt text](https://drive.google.com/drive/u/0/folders/1_u42-wYGKb42nKIIn3TSmuCExh2JLY25)
+Figure 1: Login/Account creation screen for TeaHub
+
+
+Figure 2: Account confirmation e-mail sent to verify account.
+
+
+
+Figure 3: Updating account particulars upon confirmation of account.
+
+Ordering (Setting the timer) 
+
+Users can order bubble tea, choosing the flavor and the collection time. (aka setting timer) 
+
+Once the user confirms the order (aka start the timer), the screen will show an empty bubble tea cup starting to fill slowly with the bubble tea flavor that the user has chosen. 
+
+While the cup is being filled, if the phone is unlocked and is not on the TeaHub app for more than 10 seconds, the tea cup will topple over and a notification will appear, with a message that says that the order was unsuccessful. 
+
+When the timer is up, a notification will be sent with a message saying that the bubble tea is ready for collection. The user can collect the bubble tea and will be rewarded with points for successfully staying focused for the set duration. 
+
+Leaderboard
+
+The user can access the leaderboard which shows the points that the user’s friends have earned that day, week and month. 
+
+Friends
+
+Users can add friends by username through the add friends tab. A user can choose to accept or decline friend requests.
+
+Friends can see each other’s points earned on the leaderboards and can form group sessions to make a Group Order. 
+
+Bulk Orders/ Group Orders 
+
+A user can host a group session and invite up to 4 friends to be in the same session. Users in the same session share the same focus timer and points earned will be multiplied. 
+
+If one of the users in the group fails to stay focused till the end, only that user will have an unsuccessful order. The points multiplier for the other users remaining will be decreased. 
+
+Gacha
+
+A user can unlock new bubble tea flavors by trying their luck in the gacha. Each gacha attempt costs points and subsequent gacha attempts cost an increasing number of points. The cost will reset weekly. 
+
+There will be a limited edition (LE) bubble tea flavor every 2 weeks. LE flavors cannot be acquired after that fortnight. 
+
+List of bubble tea flavors: 
+
+
+
+1. Milk tea with pearls
+2. Green milk tea 
+3. Taro milk tea 
+4. Caramel milk tea 
+5. Chocolate milk tea 
+6. Brown sugar milk tea 
+7. Matcha milk tea 
+8. Cheese milk tea
+
+**Timeline**
+
+Features to be completed by the mid of June:
 
 User interface with these core features:
 
-**1. Create Account/ Log in and Log out**
-Users can create an account with their email accounts 
-Get a verification code in email to create account
 
-**2. Timer** 
-Allow users to set a countdown timer that will stop if the device is not left idle/used for other purposes.
 
-**3. Cloud database**
-Database where a user’s records of past sessions, and total points earned from focus sessions are recorded
-Respective information and records of added friends are also available
-Leaderboard that will always show the top global users as well as among friends
+1. Timer Allow users to set a countdown timer that will stop if the device is not left idle/used for other purposes.
+2. Cloud database Database where a user’s records of past sessions, and total points earned from focus sessions are recorded Respective information and records of added friends are also available Leaderboard that will always show the top global users as well as among friends
+3. Adding friends, accepting and declining friend requests.
+4. Daily, weekly and monthly Leaderboard display.
 
-Features to be completed by the **mid of July**: 
-
-**1. Shop system**
-A shop where users can purchase new bubble tea/ try their luck at for limited edition bubble tea
-
-**2. Focus Together**
-Friends create and join a room and everyone in the room have to stay focused for the same duration set by the host. 
+Features to be completed by the mid of July:
 
 
 
-**Tech Stack**
+1. Gacha system A gacha for users to try their luck at for limited edition bubble tea
+2. Order Together Friends create and join a room and everyone in the room has to stay focused for the same duration set by the host.
+
+Tech Stack
 
 [Please list down the technologies that you are planning to use.]
-1. React Native (Front End) 
-2. SupaBase (Backend) 
-3. Postgres Database 
+
+
+
+1. React Native (Front End)
+2. SupaBase (Backend)
+3. Postgres Database
