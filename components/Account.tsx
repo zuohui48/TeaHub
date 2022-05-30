@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View, Alert, TouchableOpacity } from "react-native";
 import { Button, Input } from "react-native-elements";
 import { ApiError, Session } from "@supabase/supabase-js";
 import React from "react";
@@ -92,7 +92,7 @@ export default function Account({ session }: { session: Session }) {
       </View>
       <View style={styles.verticallySpaced}>
         <Input
-          label="Website"
+          label="Password"
           value={website || ""}
           onChangeText={(text) => setWebsite(text)}
         />
@@ -100,7 +100,7 @@ export default function Account({ session }: { session: Session }) {
 
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Button
-          title={loading ? "Loading ..." : "Update"}
+          title ={loading ? "Loading ..." : "Update"}
           onPress={() => updateProfile({ username, website, avatar_url })}
           disabled={loading}
         />
@@ -115,6 +115,7 @@ export default function Account({ session }: { session: Session }) {
 
 const styles = StyleSheet.create({
   container: {
+    backgroudColor: "#ffe4c4",
     marginTop: 40,
     padding: 12,
   },
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
     alignSelf: "stretch",
+    width: 250,
   },
   mt20: {
     marginTop: 20,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Alert, StyleSheet, View } from 'react-native'
 import { supabase } from '../lib/supabase'
 import { Button, Input } from 'react-native-elements'
+import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 
 export default function Auth() {
   const [email, setEmail] = useState('')
@@ -65,6 +65,7 @@ export default function Auth() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroudColor: "#ffe4c4",
     marginTop: 40,
     padding: 12,
   },
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
     alignSelf: 'stretch',
+    width: 250
   },
   mt20: {
     marginTop: 20,

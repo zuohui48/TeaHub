@@ -20,8 +20,27 @@ export default function App() {
   }, [])
 
   return (
-    <View>
+    <View style = {styles.body}>
+      <Image
+        style = {styles.logo} 
+        source = {{uri:"https://ibb.co/RNRJpFH"}}/>
       {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
-    </View>
+      </View>
   )
-}
+  }
+
+const styles = StyleSheet.create({
+  body: {
+    backgroudColor: "#ffe4c4",
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  },
+  logo: {
+    width: 200,
+    height: 150,
+  },
+});
