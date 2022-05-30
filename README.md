@@ -53,7 +53,7 @@ The user can log out of the current account. An account can be deleted, and the 
 An email account can only be associated with 1 TeaHub account. 
 
 
-![alt text](https://imgur.com/a/Ara6eDO)
+![alt text](images/Screenshot 2022-05-30 at 2.50.51 PM.png)
 Figure 1: Login/Account creation screen for TeaHub
 
 
