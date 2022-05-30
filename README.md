@@ -52,17 +52,6 @@ The user can log out of the current account. An account can be deleted, and the 
 
 An email account can only be associated with 1 TeaHub account. 
 
-
-![alt text](images/Screenshot 2022-05-30 at 2.50.51 PM.png)
-Figure 1: Login/Account creation screen for TeaHub
-
-
-Figure 2: Account confirmation e-mail sent to verify account.
-
-
-
-Figure 3: Updating account particulars upon confirmation of account.
-
 Ordering (Setting the timer) 
 
 Users can order bubble tea, choosing the flavor and the collection time. (aka setting timer) 
