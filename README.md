@@ -51,6 +51,7 @@ The user will be able to set their username and upload a profile picture. Accoun
 The user can log out of the current account. An account can be deleted, and the user will be automatically logged out after account deletion. 
 
 An email account can only be associated with 1 TeaHub account. 
+
 ![image_2022-05-30_14-50-23](https://user-images.githubusercontent.com/83281769/170939183-2f88bbd9-0267-4be6-a121-ce16a18e718a.png)
 
 Sign up with an email and password 
