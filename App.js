@@ -23,7 +23,7 @@ export default function App() {
     <View style = {styles.body}>
       <Image
         style = {styles.logo} 
-        source = {{uri:"https://ibb.co/RNRJpFH"}}/>
+        source = {require("./images/logo.png")}/>
       {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
       </View>
   )
