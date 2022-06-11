@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
-import { StyleSheet, View, Alert, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Alert, Image } from "react-native";
 import { Button, Input } from "react-native-elements";
 import { ApiError, Session } from "@supabase/supabase-js";
 import React from "react";
 
-export default function Account({ session }: { session: Session }) {
+export default function Account( {navigation}, { session }: { session: Session }) {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [website, setWebsite] = useState("");
@@ -78,11 +78,12 @@ export default function Account({ session }: { session: Session }) {
     }
   }
 
+    
   return (
-    <View>
-      <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input label="Email" value={session?.user?.email} disabled />
-      </View>
+    <View style= {styles.body}>
+      <Image
+          style = {styles.logo} 
+          source = {require("../images/logo.png")}/>
       <View style={styles.verticallySpaced}>
         <Input
           label="Username"
@@ -109,23 +110,37 @@ export default function Account({ session }: { session: Session }) {
       <View style={styles.verticallySpaced}>
         <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
       </View>
+      <View style={styles.verticallySpaced}>
+        <Button 
+          title="Set up Profile" disabled={loading} 
+          onPress={() => navigation.navigate("Profile")} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroudColor: "#ffe4c4",
-    marginTop: 40,
-    padding: 12,
+  body: {
+    display: "flex",
+    backgroundColor: "#fdbac4",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
+    textAlign: "center"
   },
   verticallySpaced: {
     paddingTop: 4,
     paddingBottom: 4,
     alignSelf: "stretch",
-    width: 250,
   },
   mt20: {
     marginTop: 20,
+  },
+  logo: {
+    width: 200,
+    height: 150,
+    marginBottom: 20
   },
 });

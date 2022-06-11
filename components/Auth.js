@@ -3,12 +3,12 @@ import { supabase } from '../lib/supabase'
 import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 
-export default function Auth() {
+export default function Auth({ navigation }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
-  async function signInWithEmail() {
+  async function signInWithEmail({ navigation}) {
     setLoading(true)
     const { user, error } = await supabase.auth.signIn({
       email: email,
@@ -31,7 +31,10 @@ export default function Auth() {
   }
 
   return (
-    <View>
+    <View style= {styles.body}>
+      <Image
+          style = {styles.logo} 
+          source = {require("../images/logo.png")}/>
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input
           label="Email"
@@ -59,23 +62,36 @@ export default function Auth() {
       <View style={styles.verticallySpaced}>
         <Button title="Sign up" disabled={loading} onPress={() => signUpWithEmail()} />
       </View>
+      <View style={styles.verticallySpaced}>
+        <Button 
+          title="next" disabled={loading} 
+          onPress={() => navigation.navigate("Account")} />
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroudColor: "#ffe4c4",
-    marginTop: 40,
-    padding: 12,
-  },
   verticallySpaced: {
     paddingTop: 4,
     paddingBottom: 4,
     alignSelf: 'stretch',
-    width: 250
   },
   mt20: {
     marginTop: 20,
+  },
+  logo: {
+    width: 200,
+    height: 150,
+  },
+  body: {
+    display: "flex",
+    backgroundColor: "#fdbac4",
+    flexDirection: "vertical",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
+    textAlign: "center"
   },
 })
