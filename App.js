@@ -7,6 +7,11 @@ import { Session } from '@supabase/supabase-js'
 import React from 'react'
 import { View, Text, Image, ScrollView, StyleSheet, Dimensions } from "react-native";
 import { Svg, Path } from "react-native-svg";
+import { NavigationContainer } from '@react-navigation/native';
+
+import colors from './assets/colors/colors';
+import Icon from 'react-native-vector-icons/Ionicons';
+Icon.loadFont();
 
 export default function App() {
   const [session, setSession] = useState(null)
