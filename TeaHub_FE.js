@@ -1302,7 +1302,7 @@ const stylesheet = StyleSheet.create({
 			{rotate: "0deg"},
 		],
 		fontFamily: "Urbanist",
-		fontWeight: 400,
+		fontWeight: '400',
 		textDecorationLine: "none",
 		lineHeight: 139.9999976158142,
 		fontSize: 16,

@@ -5,11 +5,15 @@ import Auth from './components/Auth'
 import Account from './components/Account'
 import { Session } from '@supabase/supabase-js'
 import React from 'react'
-import { View, Text, Image, ScrollView, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, ScrollView, StyleSheet, Dimensions, ImageBackgroundBase, ImageBackground, Modal } from "react-native";
 import { Svg, Path } from "react-native-svg";
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+ 
+const Stack = createStackNavigator();
 
 export default function App() {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState<Session | null>(null)
 
   useEffect(() => {
     setSession(supabase.auth.session())
@@ -20,23 +24,33 @@ export default function App() {
   }, [])
 
   return (
-    <View style = {styles.body}>
-      <Image
-        style = {styles.logo} 
-        source = {require("./images/logo.png")}/>
+    <NavigationContainer>
       {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
-      </View>
+      <Stack.Navigator
+        screenOptions={ {
+          header : () => null
+        }}>
+        <Stack.Screen
+          name = "Auth"
+          component = {Auth}
+        />
+        <Stack.Screen
+          name = "Account"
+          component = {Account}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
-  }
+}
 
 const styles = StyleSheet.create({
   body: {
-    backgroudColor: "#ffe4c4",
     display: "flex",
-    flexDirection: "vertical",
+    backgroundColor: "#fdbac4",
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
+    width: "100%",
     textAlign: "center"
   },
   logo: {
