@@ -3,12 +3,13 @@ import { supabase } from '../lib/supabase'
 import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 
-export default function Auth({ navigation }) {
+
+export default function Auth() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
-  async function signInWithEmail({ navigation}) {
+  async function signInWithEmail() {
     setLoading(true)
     const { user, error } = await supabase.auth.signIn({
       email: email,
@@ -29,6 +30,7 @@ export default function Auth({ navigation }) {
     if (error) Alert.alert(error.message)
     setLoading(false)
   }
+
 
   return (
     <View style= {styles.body}>
@@ -61,11 +63,6 @@ export default function Auth({ navigation }) {
       </View>
       <View style={styles.verticallySpaced}>
         <Button title="Sign up" disabled={loading} onPress={() => signUpWithEmail()} />
-      </View>
-      <View style={styles.verticallySpaced}>
-        <Button 
-          title="next" disabled={loading} 
-          onPress={() => navigation.navigate("Account")} />
       </View>
     </View>
   )

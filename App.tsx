@@ -9,12 +9,11 @@ import { View, Text, Image, ScrollView, StyleSheet, Dimensions, ImageBackgroundB
 import { Svg, Path } from "react-native-svg";
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import  Profile from "./src/profile"
  
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState<Session | null>(null)
 
   useEffect(() => {
     setSession(supabase.auth.session())
@@ -26,6 +25,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
       <Stack.Navigator
         screenOptions={ {
           header : () => null
@@ -38,32 +38,15 @@ export default function App() {
           name = "Account"
           component = {Account}
         />
-        <Stack.Screen 
-          name = "Profile"
-          component = {Profile}
-          />
       </Stack.Navigator>
     </NavigationContainer>
   )
-
-
-
-
-  return (
-    <View style = {styles.body}>
-         <Image
-          style = {styles.logo} 
-          source = {require("./images/logo.png")}/>
-        {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
-        </View>
-  )
-  }
+}
 
 const styles = StyleSheet.create({
   body: {
     display: "flex",
     backgroundColor: "#fdbac4",
-    flexDirection: "vertical",
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
