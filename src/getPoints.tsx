@@ -27,6 +27,6 @@ export default async function getPoints( { session }: { session: Session }) {
   } else {
     return points;
   }
+}
 
-  }
 

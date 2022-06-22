@@ -8,7 +8,7 @@ import { Button, Input } from "react-native-elements"
 import {
 useFonts,
 } from "@expo-google-fonts/dev";
-import getPoints from "../src/db_functions"
+import getPoints from "../src/getPoints"
 
 export default function Account( { session }: { session: Session }) {
   const [loading, setLoading] = useState(false);
