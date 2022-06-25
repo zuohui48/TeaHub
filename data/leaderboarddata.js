@@ -9,11 +9,11 @@ const leaderboardData = [
         id: 2,
         image: require('../images/profile-pic2.png'),
         title: 'Logged in User',
-        points : '2000 points',
+        points: '2000 points',
 
     },
     {
-        id: 1,
+        id: 3,
         image: require('../images/profile-pic3.png'),
         title: 'User 2',
         points: '1500 points',

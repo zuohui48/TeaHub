@@ -9,7 +9,8 @@ import { View, Text, Image, ScrollView, StyleSheet, Dimensions, ImageBackgroundB
 import { Svg, Path } from "react-native-svg";
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import  Profile from "./src/profile"
+import Leaderboard from './components/Leaderboard'
+
  
 const Stack = createStackNavigator();
 
@@ -39,9 +40,11 @@ export default function App() {
           component = {Account}
         />
         <Stack.Screen 
-          name = "Profile"
-          component = {Profile}
-          />
+          name ="Leaderboard" 
+          component = {Leaderboard}
+          options = {{
+          headerShown: false,
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

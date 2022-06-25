@@ -9,10 +9,12 @@ import colors from '../assets/colors/colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Urbanist_700Bold } from '@expo-google-fonts/dev';
 import { styleProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import leaderboardData from '../data/leaderboarddata';
+import { supabase } from '../lib/supabase';
+import { useState, useEffect } from 'react';
 
-export default Leaderboard = () => {
+export default Leaderboard = ({ navigation }) => {
 
     const renderCategoryItem = ({ item }) => {
         return (
@@ -41,7 +43,9 @@ export default Leaderboard = () => {
             </View>
             <View style = {styles.bottomWrapper}>
                 <FontAwesome5 name = "user-friends" size = {40} color = {colors.buttons} />
-                <AntDesign name = "pluscircleo" size = {40} color = {colors.blanks} />
+                <TouchableOpacity onPress={() => navigation.navigate('Timer')}>
+                    <AntDesign name = "pluscircleo" size = {40} color = {colors.blanks} />
+                </TouchableOpacity>
                 <MaterialIcons name = "leaderboard" size = {40} color = {colors.blanks} />
             </View>
         </View>
@@ -56,10 +60,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        paddingTop: 30,
+        paddingTop: 50,
     },
     leaderboardWrapper: {
-        marginTop: 40,
+        marginTop: 80,
     },
     leaderboardTitle: {
         paddingHorizontal: 20,
@@ -71,10 +75,11 @@ const styles = StyleSheet.create({
     leaderboardItemWrapper: {
         backgroundColor: colors.background,
         marginBottom: 20,
+        borderRadius:20
     },
     leaderboardItemImage: {
-        width: 60,
-        height: 60,
+        width: 80,
+        height: 80,
         marginTop: 20,
     },
     leaderboardItemTitle: {
@@ -88,8 +93,8 @@ const styles = StyleSheet.create({
     bottomWrapper: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        paddingHorizontal: 10,
-        paddingTop: 20,
+        paddingHorizontal: 0,
+        paddingTop: 60,
     }
 }
 )
