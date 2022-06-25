@@ -11,8 +11,28 @@ import { Urbanist_700Bold } from '@expo-google-fonts/dev';
 import { styleProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
 import { FlatList } from 'react-native-gesture-handler';
 import leaderboardData from '../data/leaderboarddata';
+import { supabase } from '../lib/supabase'
+import { useState, useEffect } from "react";
+
+
 
 export default Leaderboard = () => {
+    const user = supabase.auth.user();
+    const [results, setResults] = useState([]);
+    async function getResult() {
+        const user = supabase.auth.user();
+        const { data, error, status } = await supabase
+        .from("points")
+        .select(`username, pts`)
+        .eq("user_id", user.id)
+        .order('pts', {ascending: true});
+      
+        const newData = Array.from(data);
+        setResults(newData);
+    }
+    useEffect(() => {
+    getResult();
+    }, []);
 
     const renderCategoryItem = ({ item }) => {
         return (
@@ -33,7 +53,7 @@ export default Leaderboard = () => {
                 <Text style = {styles.leaderboardTitle}>Leaderboard</Text>
                 <View style = {styles.leaderboardListWrapper} >
                     <FlatList 
-                    data = {leaderboardData}
+                    data = {getResult}
                     renderItem = {renderCategoryItem}
                     keyExtractor = {(item) => item.id}
                     />
