@@ -53,7 +53,7 @@ export default Leaderboard = () => {
                 <Text style = {styles.leaderboardTitle}>Leaderboard</Text>
                 <View style = {styles.leaderboardListWrapper} >
                     <FlatList 
-                    data = {getResult}
+                    data = {results}
                     renderItem = {renderCategoryItem}
                     keyExtractor = {(item) => item.id}
                     />
