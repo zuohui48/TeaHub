@@ -15,7 +15,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
-export default Statistics = ({ navigation }) => {
+export default function Statistics ({ navigation }) {
     
     const renderStatisticsItem = ({ item }) => {
         return (

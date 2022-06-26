@@ -9,7 +9,7 @@ import colors from '../assets/colors/colors';
 import CountDown from 'react-native-countdown-component';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default Timer = ({ navigation }) => {
+export default function Timer ({ navigation }) {
     
     const handlePress = () => {
         Alert.alert('Set your order time')

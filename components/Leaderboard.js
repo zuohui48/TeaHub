@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 
 
 
-export default Leaderboard = () => {
+export default function Leaderboard ({ navigation }) {
     const user = supabase.auth.user();
     const [results, setResults] = useState([]);
     async function getResult() {

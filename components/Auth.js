@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+
 
 
 export default function Auth() {
+  const navigation = useNavigation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -16,8 +20,15 @@ export default function Auth() {
       password: password,
     })
 
-    if (error) Alert.alert(error.message)
-    setLoading(false)
+    if (error) {
+      Alert.alert(error.message)
+      setLoading(false)
+    }
+
+    else {
+      navigation.navigate("Timer")
+    }
+
   }
 
   async function signUpWithEmail() {
@@ -31,11 +42,6 @@ export default function Auth() {
     setLoading(false)
   }
 
-<<<<<<< HEAD
-8
-=======
-
->>>>>>> timer
   return (
     <View style= {styles.body}>
       <Image

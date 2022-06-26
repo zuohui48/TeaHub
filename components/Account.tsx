@@ -5,15 +5,26 @@ import React from "react";
 import { View, Text, Image, ScrollView, StyleSheet, Dimensions, Alert } from "react-native";
 import { Button, Input } from "react-native-elements"
 import getPoints from "../src/getPoints"
+import { useNavigation } from "@react-navigation/native";
 
-export default function Account( { session }: { session: Session }) {
-  const [loading, setLoading] = useState(false);
-  const [username, setUsername] = useState("");
-  const [fullname, setFullname] = useState("");
+
+export default function Account( { session }: { session: Session }, {navigation}) {
+	/* const [session, setSession] = useState<Session | null>(null)
+
+	useEffect(() => {
+	  setSession(supabase.auth.session())
+  
+	  supabase.auth.onAuthStateChange((_event, session) => {
+		setSession(session)
+	  })
+	}, []) */
+  	const [loading, setLoading] = useState(false);
+  	const [username, setUsername] = useState("");
+  	const [fullname, setFullname] = useState("");
  
-  useEffect(() => {
-    if (session) getProfile();
-  }, [session]);
+  	useEffect(() => {
+    	if (session) getProfile();
+  	}, [session]);
 
   async function getProfile() {
     try {
@@ -100,8 +111,10 @@ export default function Account( { session }: { session: Session }) {
       Alert.alert((error as ApiError).message);
     } finally {
       setLoading(false);
+	  navigation.navigate("Timer")
     }
   }
+
   async function updatePointsProfile({username, fullname}) {
     updateProfile({username, fullname})
     insertPoints({username})

@@ -5,12 +5,11 @@ import Auth from './components/Auth'
 import Account from './components/Account'
 import { Session } from '@supabase/supabase-js'
 import React from 'react'
-import { View, Text, Image, ScrollView, StyleSheet, Dimensions, ImageBackgroundBase, ImageBackground, Modal } from "react-native";
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import colors from './assets/colors/colors';
-import Icon from 'react-native-vector-icons/Ionicons';
-Icon.loadFont();
+import Timer from './components/Timer'
+import Leaderboard from './components/Leaderboard'
+import Statistics from './components/Statistics'
 
 const Stack = createStackNavigator();
 
@@ -27,11 +26,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
       <Stack.Navigator
-        screenOptions={ {
+        /*screenOptions={ {
           header : () => null
-        }}>
+        }}*/>
         <Stack.Screen
           name = "Auth"
           component = {Auth}
@@ -39,6 +37,18 @@ export default function App() {
         <Stack.Screen
           name = "Account"
           component = {Account}
+        />
+        <Stack.Screen
+          name = "Timer"
+          component = {Timer}
+        />
+        <Stack.Screen
+          name = "LeaderBoard"
+          component = {Leaderboard}
+        />
+        <Stack.Screen
+          name = "Stastics"
+          component = {Statistics}
         />
       </Stack.Navigator>
     </NavigationContainer>
