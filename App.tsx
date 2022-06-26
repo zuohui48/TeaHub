@@ -43,11 +43,11 @@ export default function App() {
           component = {Timer}
         />
         <Stack.Screen
-          name = "LeaderBoard"
+          name = "Leaderboard"
           component = {Leaderboard}
         />
         <Stack.Screen
-          name = "Stastics"
+          name = "Statistics"
           component = {Statistics}
         />
       </Stack.Navigator>

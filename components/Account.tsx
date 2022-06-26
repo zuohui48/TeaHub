@@ -8,7 +8,7 @@ import getPoints from "../src/getPoints"
 import { useNavigation } from "@react-navigation/native";
 
 
-export default function Account( { session }: { session: Session }, {navigation}) {
+export default function Account( { session }: { session: Session }) {
 	/* const [session, setSession] = useState<Session | null>(null)
 
 	useEffect(() => {
@@ -18,6 +18,7 @@ export default function Account( { session }: { session: Session }, {navigation}
 		setSession(session)
 	  })
 	}, []) */
+	const navigation = useNavigation()
   	const [loading, setLoading] = useState(false);
   	const [username, setUsername] = useState("");
   	const [fullname, setFullname] = useState("");
@@ -111,7 +112,6 @@ export default function Account( { session }: { session: Session }, {navigation}
       Alert.alert((error as ApiError).message);
     } finally {
       setLoading(false);
-	  navigation.navigate("Timer")
     }
   }
 
@@ -132,6 +132,11 @@ export default function Account( { session }: { session: Session }, {navigation}
 				<Button 
         			title ={loading ? "Loading ..." : "Update"}
         			onPress={() => updatePointsProfile({ username , fullname})}
+        			disabled={loading}
+        />
+		<Button 
+        			title ={loading ? "Loading ..." : "Timer"}
+        			onPress={() => navigation.navigate("Timer")}
         			disabled={loading}
         />
         <Button 

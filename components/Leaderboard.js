@@ -6,9 +6,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../assets/colors/colors';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Urbanist_700Bold } from '@expo-google-fonts/dev';
-import { styleProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import leaderboardData from '../data/leaderboarddata';
 import { supabase } from '../lib/supabase'
@@ -23,9 +20,8 @@ export default function Leaderboard ({ navigation }) {
         const user = supabase.auth.user();
         const { data, error, status } = await supabase
         .from("points")
-        .select(`username, pts`)
-        .eq("user_id", user.id)
-        .order('pts', {ascending: true});
+        .select(`id, username, pts`)
+        .order('pts', {ascending: false});
       
         const newData = Array.from(data);
         setResults(newData);
@@ -38,8 +34,8 @@ export default function Leaderboard ({ navigation }) {
         return (
             <View style = {styles.leaderboardItemWrapper}>
                 <Image source = {item.image} style = {styles.leaderboardItemImage}/>
-                <Text style = {styles.leaderboardItemTitle}>{item.title}</Text>
-                <Text style = {styles.leaderboardItemPoints}>{item.points}</Text>
+                <Text style = {styles.leaderboardItemTitle}>{item.username}</Text>
+                <Text style = {styles.leaderboardItemPoints}>{item.pts}</Text>
             </View>
         );
     }

@@ -4,9 +4,6 @@ import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-
-
-
 export default function Auth() {
   const navigation = useNavigation()
   const [email, setEmail] = useState('')
@@ -26,9 +23,8 @@ export default function Auth() {
     }
 
     else {
-      navigation.navigate("Timer")
+      navigation.navigate("Account")
     }
-
   }
 
   async function signUpWithEmail() {
