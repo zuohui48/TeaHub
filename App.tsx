@@ -44,19 +44,3 @@ export default function App() {
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  body: {
-    display: "flex",
-    backgroundColor: "#fdbac4",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-    width: "100%",
-    textAlign: "center"
-  },
-  logo: {
-    width: 200,
-    height: 150,
-  },
-});

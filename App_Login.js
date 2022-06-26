@@ -48,33 +48,5 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   )
+        }
 
-
-
-
-  return (
-    <View style = {styles.body}>
-         <Image
-          style = {styles.logo} 
-          source = {require("./images/logo.png")}/>
-        {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
-        </View>
-  )
-  }
-
-const styles = StyleSheet.create({
-  body: {
-    display: "flex",
-    backgroundColor: "#fdbac4",
-    flexDirection: "vertical",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-    width: "100%",
-    textAlign: "center"
-  },
-  logo: {
-    width: 200,
-    height: 150,
-  },
-});
