@@ -11,7 +11,7 @@ import Account from './components/Account';
 import { Session } from '@supabase/supabase-js';
 import { useState, useEffect } from 'react';
 import { supabase } from './lib/supabase';
-import LeaderboardButton from "./leaderboardbutton";
+
 
 const Stack = createStackNavigator();
 
