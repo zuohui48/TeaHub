@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabase";
 import { ApiError, Session } from "@supabase/supabase-js";
 import React from "react";
 import { View, Text, Image, ScrollView, StyleSheet, Dimensions, Alert } from "react-native";
+<<<<<<< HEAD
 import { Svg, Path } from "react-native-svg";
 import { Button, Input } from "react-native-elements"
 import {
@@ -16,6 +17,16 @@ export default function Account( { session }: { session: Session }, { navigation
   const [username, setUsername] = useState("");
 
 
+=======
+import { Button, Input } from "react-native-elements"
+import getPoints from "../src/getPoints"
+
+export default function Account( { session }: { session: Session }) {
+  const [loading, setLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [fullname, setFullname] = useState("");
+ 
+>>>>>>> timer
   useEffect(() => {
     if (session) getProfile();
   }, [session]);
@@ -28,7 +39,11 @@ export default function Account( { session }: { session: Session }, { navigation
 
       let { data, error, status } = await supabase
         .from("profiles")
+<<<<<<< HEAD
         .select(`username`)
+=======
+        .select(`username, fullname`)
+>>>>>>> timer
         .eq("id", user.id)
         .single();
       if (error && status !== 406) {
@@ -37,6 +52,10 @@ export default function Account( { session }: { session: Session }, { navigation
 
       if (data) {
         setUsername(data.username);
+<<<<<<< HEAD
+=======
+        setFullname(data.fullname)
+>>>>>>> timer
       }
     } catch (error) {
       Alert.alert((error as ApiError).message);
@@ -44,11 +63,50 @@ export default function Account( { session }: { session: Session }, { navigation
       setLoading(false);
     }
   }
+<<<<<<< HEAD
 
   async function updateProfile({
     username,
   }: {
     username: string;
+=======
+  async function insertPoints({
+    username
+  }: {
+    username: string;
+  }) {
+    try {
+      setLoading(true);
+      const user = supabase.auth.user();
+      if (!user) throw new Error("No user on the session!");
+      
+      const updates = {
+        id: user.id,
+        username,
+        points: getPoints, 
+        created_at: new Date(),
+      };
+
+      let { error } = await supabase
+        .from("points")
+        .upsert(updates, { returning: "minimal" });
+
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      Alert.alert((error as ApiError).message);
+    } finally {
+      setLoading(false);
+    }
+  }
+  async function updateProfile({
+    username,
+    fullname,
+  }: {
+    username: string;
+    fullname: string;
+>>>>>>> timer
   }) {
     try {
       setLoading(true);
@@ -58,6 +116,10 @@ export default function Account( { session }: { session: Session }, { navigation
       const updates = {
         id: user.id,
         username,
+<<<<<<< HEAD
+=======
+        fullname,
+>>>>>>> timer
         updated_at: new Date(),
       };
 
@@ -74,14 +136,22 @@ export default function Account( { session }: { session: Session }, { navigation
       setLoading(false);
     }
   }
+  async function updatePointsProfile({username, fullname}) {
+    updateProfile({username, fullname})
+    insertPoints({username})
+  }
 
+<<<<<<< HEAD
   let [fontsLoaded] = useFonts({
 	});
+=======
+>>>>>>> timer
 
 	return (
 		<ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{height: Dimensions.get("window").height}}>
 		<View style = {stylesheet._2_Light_carousel_3}>
 			<View style = {[stylesheet._Fill_your_Profile, {display: "flex", flexDirection: "row", alignItems: "center"}]}>
+<<<<<<< HEAD
 			<Text style = {[stylesheet._Fill_your_Profile, {position: "relative", left: 0, top: 0, height: "auto", transform: [{translateX: 0}, {translateY: 0}],}]}>
 				Fill your Profile
 			</Text>
@@ -108,10 +178,29 @@ export default function Account( { session }: { session: Session }, { navigation
         />
 		<LeaderboardButton/>
         <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
+=======
+			<Text style = {[stylesheet._Fill_your_Profile, {position: "relative", left: 13, top: 0, height: "auto", transform: [{translateX: 0}, {translateY: 0}],}]}>
+				Complete your Profile
+			</Text>
+			</View>
+			<View style = {stylesheet._Type_Button__Type_2_Primary__Type_3_Rounded__Style_Default__State_Active__Theme_Default__Component_Button}>
+				<Button 
+        			title ={loading ? "Loading ..." : "Update"}
+        			onPress={() => updatePointsProfile({ username , fullname})}
+        			disabled={loading}
+        />
+        <Button 
+		title="Sign Out" onPress={() => supabase.auth.signOut()} />
+>>>>>>> timer
 			</View>
 			<View style = {stylesheet._Rectangle_1}>
 				<Input
 				placeholder="Full Name"
+<<<<<<< HEAD
+=======
+        		value = {fullname || ""}
+        		onChangeText = {(text) => setFullname(text)}
+>>>>>>> timer
 			/>
 			</View>
 			<View style = {stylesheet._Rectangle_2}>
@@ -126,6 +215,7 @@ export default function Account( { session }: { session: Session }, { navigation
 				placeholder="Password"
 				/>
 			</View>
+<<<<<<< HEAD
 			<View style = {stylesheet._Ellipse_1}>
 			</View>
 			<Component__person
@@ -178,16 +268,35 @@ const Component__person = ({
 
 const stylesheet = StyleSheet.create({
 	_2_Light_carousel_3: {
+=======
+			<View style = {stylesheet.bubble_tea}>
+			<Image
+          		style = {stylesheet.logo} 
+          		source = {require("../images/bubbletea.jpeg")}/>
+			</View>
+		</View>
+		</ScrollView>
+	)
+}
+
+
+const stylesheet = StyleSheet.create({
+	_2_Light_carousel_3: {
+		justifyContent: "center",
+>>>>>>> timer
 		position: "relative",
 		width: Dimensions.get("window").width,
 		height: 926,
 		borderRadius: 0,
 		overflow: "hidden",
+<<<<<<< HEAD
 		transform: [
 			{translateX: 0},
 			{translateY: 0},
 			{rotate: "0deg"},
 		],
+=======
+>>>>>>> timer
 		backgroundColor: "#fdbac4",
 		left: 0,
 		top: 0,
@@ -302,11 +411,15 @@ const stylesheet = StyleSheet.create({
 		height: 110,
 		left: 0,
 		right: "auto",
+<<<<<<< HEAD
 		transform: [
 			{translateX: 0},
 			{translateY: 91},
 			{rotate: "0deg"},
 		],
+=======
+		top: 60,
+>>>>>>> timer
 		fontWeight: '500',
 		textDecorationLine: "none",
 		lineHeight: 110.00000238418579,
@@ -315,6 +428,7 @@ const stylesheet = StyleSheet.create({
 		textAlign: "center",
 		textAlignVertical: "center",
 		letterSpacing: 0.1,
+<<<<<<< HEAD
 		justifyContent: "flex-end"
 	},
 	_Theme_Light__Component_Navbar: {
@@ -339,6 +453,9 @@ const stylesheet = StyleSheet.create({
 		display: "flex",
 		flexDirection: "row",
 		alignItems: "center",
+=======
+		justifyContent: "center"
+>>>>>>> timer
 	},
 	_Auto_Layout_Horizontal: {
 		position: "relative",
@@ -362,6 +479,7 @@ const stylesheet = StyleSheet.create({
 		alignItems: "center",
 		flexShrink: 0,
 	},
+<<<<<<< HEAD
 	_Iconly_Light_Outline_Arrow___Left: {
 		position: "relative",
 		width: 28.000001907348633,
@@ -375,6 +493,8 @@ const stylesheet = StyleSheet.create({
 		backgroundColor: "rgba(255, 255, 255, 0)",
 		flexShrink: 0,
 	},
+=======
+>>>>>>> timer
 	_Group_5: {
 		position: "absolute",
 		width: 15.807167053222656,
@@ -565,12 +685,19 @@ const stylesheet = StyleSheet.create({
 		textAlignVertical: "center",
 		letterSpacing: 0.20000000298023224,
 	},
+<<<<<<< HEAD
 	_Ellipse_1: {
+=======
+	bubble_tea: {
+>>>>>>> timer
 		position: "absolute",
 		width: 189,
 		height: 189,
 		borderRadius: 1000,
+<<<<<<< HEAD
 		backgroundColor: "rgba(217, 217, 217, 1)",
+=======
+>>>>>>> timer
 		left: 114,
 		right: "auto",
 		top: 169,
@@ -581,6 +708,7 @@ const stylesheet = StyleSheet.create({
 			{rotate: "0deg"},
 		],
 	},
+<<<<<<< HEAD
 });
 const component__person_stylesheet = StyleSheet.create({
 	_person: {
@@ -642,3 +770,16 @@ const component__person_stylesheet = StyleSheet.create({
 	},
 
 });
+=======
+	logo: {
+		position: "relative",
+		flex: 1,
+		alignSelf: "center",
+		width: 186,
+		height: 160,
+		borderRadius: 100,
+	  },
+});
+
+
+>>>>>>> timer

@@ -31,7 +31,11 @@ export default function Auth() {
     setLoading(false)
   }
 
+<<<<<<< HEAD
 8
+=======
+
+>>>>>>> timer
   return (
     <View style= {styles.body}>
       <Image

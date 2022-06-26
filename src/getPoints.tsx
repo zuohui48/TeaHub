@@ -29,3 +29,7 @@ export default async function getPoints( { session }: { session: Session }) {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> timer
