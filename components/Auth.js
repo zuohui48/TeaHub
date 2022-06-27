@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
+import { BackgroundImage } from 'react-native-elements/dist/config';
+import colors from '../assets/colors/colors';
 
 export default function Auth() {
+  const navigation = useNavigation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -16,8 +19,14 @@ export default function Auth() {
       password: password,
     })
 
-    if (error) Alert.alert(error.message)
-    setLoading(false)
+    if (error) {
+      Alert.alert(error.message)
+      setLoading(false)
+    }
+
+    else {
+      navigation.navigate("Account")
+    }
   }
 
   async function signUpWithEmail() {
@@ -31,9 +40,10 @@ export default function Auth() {
     setLoading(false)
   }
 
-
   return (
     <View style= {styles.body}>
+      <BackgroundImage //style= {styles.image}
+      source = {require("../images/backgroundImage.jpeg")}/>
       <Image
           style = {styles.logo} 
           source = {require("../images/logo.png")}/>
@@ -73,6 +83,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
     alignSelf: 'stretch',
+    color: colors.blackFont,
   },
   mt20: {
     marginTop: 20,
@@ -90,5 +101,9 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     textAlign: "center"
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center"
   },
 })

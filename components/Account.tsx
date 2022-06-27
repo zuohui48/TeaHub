@@ -3,21 +3,20 @@ import { supabase } from "../lib/supabase";
 import { ApiError, Session } from "@supabase/supabase-js";
 import React from "react";
 import { View, Text, Image, ScrollView, StyleSheet, Dimensions, Alert } from "react-native";
-import { Svg, Path } from "react-native-svg";
 import { Button, Input } from "react-native-elements"
-import {
-useFonts,
-} from "@expo-google-fonts/dev";
 import getPoints from "../src/getPoints"
+import { useNavigation } from "@react-navigation/native";
 
-export default function Account( { session }: { session: Session }) {
-  const [loading, setLoading] = useState(false);
-  const [username, setUsername] = useState("");
-  const [fullname, setFullname] = useState("");
+
+export default function Account({ session }: { session: Session }) {
+	const navigation = useNavigation()
+  	const [loading, setLoading] = useState(false);
+  	const [username, setUsername] = useState("");
+  	const [fullname, setFullname] = useState("");
  
-  useEffect(() => {
-    if (session) getProfile();
-  }, [session]);
+  	useEffect(() => {
+    	if (session) getProfile();
+  	}, [session]);
 
   async function getProfile() {
     try {
@@ -57,7 +56,7 @@ export default function Account( { session }: { session: Session }) {
       const updates = {
         id: user.id,
         username,
-        points: getPoints, 
+        pts: getPoints,
         created_at: new Date(),
       };
 
@@ -106,16 +105,20 @@ export default function Account( { session }: { session: Session }) {
       setLoading(false);
     }
   }
+
   async function updatePointsProfile({username, fullname}) {
     updateProfile({username, fullname})
-    insertPoints({username})
+
   }
 
-  let [fontsLoaded] = useFonts({
-	});
+  async function goToTimer({username},{naviagtion}) {
+	insertPoints({username})
+	navigation.navigate("Timer") 
+  }
 
 	return (
 		<ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{height: Dimensions.get("window").height}}>
+			
 		<View style = {stylesheet._2_Light_carousel_3}>
 			<View style = {[stylesheet._Fill_your_Profile, {display: "flex", flexDirection: "row", alignItems: "center"}]}>
 			<Text style = {[stylesheet._Fill_your_Profile, {position: "relative", left: 13, top: 0, height: "auto", transform: [{translateX: 0}, {translateY: 0}],}]}>
@@ -128,8 +131,13 @@ export default function Account( { session }: { session: Session }) {
         			onPress={() => updatePointsProfile({ username , fullname})}
         			disabled={loading}
         />
+		<Button 
+        			title ={loading ? "Loading ..." : "Timer"}
+        			onPress={() => goToTimer({username}, {navigation})}
+        			disabled={loading}
+        />
         <Button 
-		title="Sign Out" onPress={() => supabase.auth.signOut()} />
+		title="Sign Out" onPress={ async () => await supabase.auth.signOut()} />
 			</View>
 			<View style = {stylesheet._Rectangle_1}>
 				<Input
@@ -145,11 +153,7 @@ export default function Account( { session }: { session: Session }) {
           onChangeText={(text) => setUsername(text)}
         />
 			</View>
-			<View style = {stylesheet._Rectangle_3}>
-			<Input
-				placeholder="Password"
-				/>
-			</View>
+
 			<View style = {stylesheet.bubble_tea}>
 			<Image
           		style = {stylesheet.logo} 
@@ -384,7 +388,7 @@ const stylesheet = StyleSheet.create({
 		paddingBottom: 18,
 		display: "flex",
 		flexDirection: "row",
-		justifyContent: "center",
+		justifyContent: "space-evenly",
 		alignSelf: "center",
 	},
 	_Rectangle_1: {
@@ -403,6 +407,7 @@ const stylesheet = StyleSheet.create({
 			{rotate: "0deg"},
 		],
 		backgroundColor: "rgba(217, 217, 217, 1)",
+		borderTopEndRadius: 2,
 	},
 	_Rectangle_2: {
 		position: "absolute",
