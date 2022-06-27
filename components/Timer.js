@@ -6,14 +6,36 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../assets/colors/colors';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { useState } from 'react';
 import { TextInput } from 'react-native-gesture-handler';
-import Constants from 'expo-constants';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
+import getPoints from '../src/getPoints';
+import {Keyboard} from 'react-native'
+import getUsername from '../src/getUsername';
+import { supabase } from '../lib/supabase';
 
 export default function Timer ({ navigation }) {
+    async function updatePoints({points}) {
+
+        const user = supabase.auth.user();
+        if (!user) throw new Error("No user on the session!");
+        
+        const updates = {
+          id: user.id,
+          pts: points,
+          username: getUsername,
+          created_at: new Date(),
+        };
     
+        let { error } = await supabase
+          .from("points")
+          .upsert(updates, { returning: "minimal" });
+    
+        if (error) {
+          throw error;
+        }  
+      }
     const handlePress = () => {
         Alert.alert('Set your order time')
     }
@@ -22,15 +44,19 @@ export default function Timer ({ navigation }) {
         Alert.alert('Order Complete!')
     }
 
-    const [duration, setDuration] = useState('30')
+    const [duration, setDuration] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false)
+    const [canStart, setCanStart] = useState(false)
+    const [canEdit, setCanEdit] = useState(true)
     
-    const children = ({ remainingTime }) => {
-        const hours = Math.floor(remainingTime / 3600)
-        const minutes = Math.floor((remainingTime % 3600)/60)
-        const seconds = remainingTime % 60
+    function startButton() {
+        updatePoints(duration + getPoints)
+        setIsPlaying(true)
+        setCanStart(true)
+    }
 
-        return'${hours}:${minutes}:${seconds}'
+    function editable() {
+        setCanEdit(false)
     }
 
     return (
@@ -41,6 +67,7 @@ export default function Timer ({ navigation }) {
                 </TouchableOpacity>
                 <Feather name = "settings" size ={40} color = {colors.blanks} />
             </View>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style = {styles.countdownWrapper}>
                 <Text style = {styles.countdownTitle}>Enter order duration</Text>
                 <TextInput
@@ -48,16 +75,19 @@ export default function Timer ({ navigation }) {
                 placeholder = 'Order duration in MINUTES'
                 onChangeText={(val) => setDuration(val)}
                 keyboardType = 'numeric'
+                onEndEditing={editable}
+                editable = {canEdit}
                 maxLength={3}
                 />
             </View>
+            </TouchableWithoutFeedback>
             <View style = {styles.timerWrapper}>
                 <CountdownCircleTimer
                     style = {styles.countdownTimer}
                     isPlaying = {isPlaying}
                     duration = {duration * 60}
                     colors = {["#004777", "#F7B801", "#A30000", "#A30000"]}
-                    onComplete = {() => ({ shouldRepeat: true, delay: 2})}
+                    onComplete = {handleFinish}
                 >
                 
                     {({ remainingTime, color }) => (
@@ -66,9 +96,14 @@ export default function Timer ({ navigation }) {
                      </Text>
                  )}
                 </CountdownCircleTimer>
+                <Button
+                    color = {colors.buttons}
+                    title = "Start" 
+                    onPress ={() => startButton()}
+                    disabled = {canStart}/>
                 <Button 
                     color={colors.buttons}
-                    title = "Start/Pause" onPress={() => setIsPlaying(prev => !prev)} />
+                    title = "Pause/Resume" onPress={() => setIsPlaying(prev => !prev)} />
             </View>
             <View style = {styles.bottomWrapper}>
                 <TouchableOpacity onPress={() => navigation.navigate('Leaderboard')}>

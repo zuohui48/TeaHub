@@ -56,7 +56,7 @@ export default function Account({ session }: { session: Session }) {
       const updates = {
         id: user.id,
         username,
-        points: getPoints, 
+        pts: getPoints,
         created_at: new Date(),
       };
 
