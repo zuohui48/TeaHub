@@ -7,7 +7,6 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../assets/colors/colors';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-import leaderboardData from '../data/leaderboarddata';
 import { supabase } from '../lib/supabase'
 import { useState, useEffect } from "react";
 

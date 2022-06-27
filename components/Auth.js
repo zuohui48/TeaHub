@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabase'
 import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { BackgroundImage } from 'react-native-elements/dist/config';
 
 export default function Auth() {
   const navigation = useNavigation()
@@ -40,6 +41,8 @@ export default function Auth() {
 
   return (
     <View style= {styles.body}>
+      <BackgroundImage //style= {styles.image}
+      source = {require("../images/backgroundImage.jpeg")}/>
       <Image
           style = {styles.logo} 
           source = {require("../images/logo.png")}/>
@@ -96,5 +99,9 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     textAlign: "center"
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center"
   },
 })

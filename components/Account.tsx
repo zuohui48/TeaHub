@@ -8,16 +8,7 @@ import getPoints from "../src/getPoints"
 import { useNavigation } from "@react-navigation/native";
 
 
-export default function Account( { session }: { session: Session }) {
-	/* const [session, setSession] = useState<Session | null>(null)
-
-	useEffect(() => {
-	  setSession(supabase.auth.session())
-  
-	  supabase.auth.onAuthStateChange((_event, session) => {
-		setSession(session)
-	  })
-	}, []) */
+export default function Account({ session }: { session: Session }) {
 	const navigation = useNavigation()
   	const [loading, setLoading] = useState(false);
   	const [username, setUsername] = useState("");
@@ -117,11 +108,17 @@ export default function Account( { session }: { session: Session }) {
 
   async function updatePointsProfile({username, fullname}) {
     updateProfile({username, fullname})
-    insertPoints({username})
+
+  }
+
+  async function goToTimer({username},{naviagtion}) {
+	insertPoints({username})
+	navigation.navigate("Timer") 
   }
 
 	return (
 		<ScrollView bounces={false} showsVerticalScrollIndicator={false} style={{height: Dimensions.get("window").height}}>
+			
 		<View style = {stylesheet._2_Light_carousel_3}>
 			<View style = {[stylesheet._Fill_your_Profile, {display: "flex", flexDirection: "row", alignItems: "center"}]}>
 			<Text style = {[stylesheet._Fill_your_Profile, {position: "relative", left: 13, top: 0, height: "auto", transform: [{translateX: 0}, {translateY: 0}],}]}>
@@ -136,11 +133,11 @@ export default function Account( { session }: { session: Session }) {
         />
 		<Button 
         			title ={loading ? "Loading ..." : "Timer"}
-        			onPress={() => navigation.navigate("Timer")}
+        			onPress={() => goToTimer({username}, {navigation})}
         			disabled={loading}
         />
         <Button 
-		title="Sign Out" onPress={() => supabase.auth.signOut()} />
+		title="Sign Out" onPress={ async () => await supabase.auth.signOut()} />
 			</View>
 			<View style = {stylesheet._Rectangle_1}>
 				<Input
@@ -156,11 +153,7 @@ export default function Account( { session }: { session: Session }) {
           onChangeText={(text) => setUsername(text)}
         />
 			</View>
-			<View style = {stylesheet._Rectangle_3}>
-			<Input
-				placeholder="Password"
-				/>
-			</View>
+
 			<View style = {stylesheet.bubble_tea}>
 			<Image
           		style = {stylesheet.logo} 
@@ -395,7 +388,7 @@ const stylesheet = StyleSheet.create({
 		paddingBottom: 18,
 		display: "flex",
 		flexDirection: "row",
-		justifyContent: "center",
+		justifyContent: "space-evenly",
 		alignSelf: "center",
 	},
 	_Rectangle_1: {
