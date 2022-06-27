@@ -6,14 +6,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../assets/colors/colors';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Urbanist_700Bold } from '@expo-google-fonts/dev';
-import { styleProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
 import { FlatList } from 'react-native-gesture-handler';
 import statisticsData from '../data/statisticsdata';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
-
 
 export default function Statistics ({ navigation }) {
     
@@ -31,7 +26,7 @@ export default function Statistics ({ navigation }) {
     return (
         <View>
             <View style = {styles.headerWrapper}>
-                <TouchableOpacity onPress={()=> navigation.navigate('Timer')}>
+                <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Ionicons name = "arrow-back" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
                 <Feather name = "settings" size ={40} color = {colors.blanks} />
@@ -46,11 +41,13 @@ export default function Statistics ({ navigation }) {
                 </View>
             </View>
             <View style = {styles.bottomWrapper}>
-                <FontAwesome5 name = "user-friends" size = {40} color = {colors.blanks} />
+                <TouchableOpacity onPress = {() => navigation.navigate('Leaderboard')}>
+                    <FontAwesome5 name = "user-friends" size = {40} color = {colors.blanks} />
+                </TouchableOpacity>
                 <TouchableOpacity onPress = {() => navigation.navigate('Timer')}>
                     <AntDesign name = "pluscircleo" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
-                <MaterialIcons name = "leaderboard" size = {40} color = {colors.buttons} />
+                    <MaterialIcons name = "leaderboard" size = {40} color = {colors.buttons} />
             </View>
         </View>
     )
@@ -64,10 +61,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        paddingTop: 50,
+        paddingTop: 20,
     },
     statisticsWrapper: {
-        marginTop: 50,
+        marginTop: 20,
     },
     statisticsTitle: {
         paddingHorizontal: 20,
@@ -82,8 +79,8 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     statisticsItemImage: {
-        width: 80,
-        height: 80,
+        width: 70,
+        height: 70,
         marginTop: 20,
     },
     statisticsItemOrderType: {
@@ -98,7 +95,6 @@ const styles = StyleSheet.create({
     bottomWrapper: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        paddingHorizontal: 0,
-        paddingTop: 30,
+        marginTop: 8,
     }
 })

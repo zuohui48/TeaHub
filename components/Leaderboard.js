@@ -42,7 +42,9 @@ export default function Leaderboard ({ navigation }) {
     return (
         <View>
             <View style = {styles.headerWrapper}>
+            <TouchableOpacity onPress={()=> navigation.goBack()}>
                 <Ionicons name = "arrow-back" size = {40} color = {colors.blanks} />
+            </TouchableOpacity>
                 <Feather name = "settings" size ={40} color = {colors.blanks} />
             </View>
             <View style = {styles.leaderboardWrapper}>
@@ -60,7 +62,10 @@ export default function Leaderboard ({ navigation }) {
                 <TouchableOpacity onPress={() => navigation.navigate('Timer')}>
                     <AntDesign name = "pluscircleo" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
-                <MaterialIcons name = "leaderboard" size = {40} color = {colors.blanks} />
+                <TouchableOpacity onPress = {() => navigation.navigate('Statistics')}>
+                    <MaterialIcons name = "leaderboard" size = {40} color = {colors.blanks} />
+                </TouchableOpacity>
+                
             </View>
         </View>
     )
@@ -74,10 +79,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        paddingTop: 50,
+        paddingTop: 20,
     },
     leaderboardWrapper: {
-        marginTop: 80,
+        marginTop: 20,
     },
     leaderboardTitle: {
         paddingHorizontal: 20,
@@ -103,12 +108,11 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         marginRight: 20,
     },
-
     bottomWrapper: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         paddingHorizontal: 0,
-        paddingTop: 60,
+        paddingVertical: 40
+
     }
-}
-)
+})
