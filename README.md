@@ -9,6 +9,10 @@ Link to Video Presentation: https://drive.google.com/file/d/14QOWUys9KfmCa9pFwYM
 <H1> 
 Instructions for running TeaHub 
 
+<H2>
+  go to this link https://expo.dev/@samsepiol/teahub?serviceType=classic&distribution=expo-go and scan the QR code with your camera to open the app on expo go 
+  if the above does not work, follow the instructions below
+  
 1. Clone this repository onto the local machine 
 
 2. Run npm install or yarn install 
