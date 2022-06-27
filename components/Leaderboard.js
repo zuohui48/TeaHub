@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import { Image, Text, StyleSheet, View } from 'react-native';
+import { Image, Text, StyleSheet, View, Dimensions } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -78,10 +78,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        paddingTop: 20,
+        paddingTop: 50,
     },
     leaderboardWrapper: {
         marginTop: 20,
+        height: 580,
     },
     leaderboardTitle: {
         paddingHorizontal: 20,

@@ -4,6 +4,7 @@ import { Button, Input } from 'react-native-elements'
 import { Alert, View, Text, Image, ScrollView, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { BackgroundImage } from 'react-native-elements/dist/config';
+import colors from '../assets/colors/colors';
 
 export default function Auth() {
   const navigation = useNavigation()
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
     alignSelf: 'stretch',
+    color: colors.blackFont,
   },
   mt20: {
     marginTop: 20,

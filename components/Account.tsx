@@ -407,6 +407,7 @@ const stylesheet = StyleSheet.create({
 			{rotate: "0deg"},
 		],
 		backgroundColor: "rgba(217, 217, 217, 1)",
+		borderTopEndRadius: 2,
 	},
 	_Rectangle_2: {
 		position: "absolute",

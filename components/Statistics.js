@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        paddingTop: 20,
+        paddingTop: 50,
     },
     statisticsWrapper: {
         marginTop: 20,
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     statisticsListWrapper: {
         paddingTop: 15,
         paddingBottom: 20,
+        height: 580,
     },
     statisticsItemWrapper: {
         backgroundColor: colors.background,
@@ -95,6 +96,6 @@ const styles = StyleSheet.create({
     bottomWrapper: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginTop: 8,
+        paddingTop: 25,
     }
 })
