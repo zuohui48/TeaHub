@@ -29,7 +29,9 @@ export default function Statistics ({ navigation }) {
                 <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Ionicons name = "arrow-back" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
-                <Feather name = "settings" size ={40} color = {colors.blanks} />
+                <TouchableOpacity onPress={()=> navigation.navigate('Friends')}>
+                    <Feather name = "settings" size ={40} color = {colors.blanks} />
+                </TouchableOpacity>
             </View>
             <View style = {styles.statisticsWrapper}>
                 <Text style = {styles.statisticsTitle}> Statistics </Text>

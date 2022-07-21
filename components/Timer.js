@@ -153,6 +153,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         paddingHorizontal: 0,
-        paddingTop: 240,
+        paddingTop: 220,
     }
 })
