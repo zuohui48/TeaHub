@@ -1,12 +1,13 @@
 import 'react-native-gesture-handler';
-import { Image, Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../assets/colors/colors';
-import { TextInput } from 'react-native-gesture-handler';
+
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function Friends ({ navigation }) {
-    return (
+export default function Settings ({ navigation }) {
+
+    return(
         <View>
             <View style = {styles.headerWrapper}>
                 <TouchableOpacity onPress={()=> navigation.goBack()}>
@@ -14,19 +15,18 @@ export default function Friends ({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View style = {styles.addFriendWrapper}>
-                <Text style = {styles.addFriendTitle}>Enter Username</Text>
-                <TextInput
-                    style = {styles.addFriendField}
-                    placeholder = 'Username'
-                />
-            </View>
-            <View>
-                <TouchableOpacity style = {styles.addFriendButton}>
-                    <Text style = {styles.addFriendButtonText}> Add Friend </Text>
+                <TouchableOpacity onPress={()=> navigation.navigate('Friends')}
+                    style = {styles.buttonStyle}>
+                    <Text style = {styles.buttonText}> Add Friends </Text>
                 </TouchableOpacity>
             </View>
-        </View>
-
+            <View style = {styles.gachaWrapper}>
+                <TouchableOpacity onPres={()=> navigation.navigate('Gacha')}
+                style = {styles.buttonStyle}>
+                    <Text style = {styles.buttonText}> Gacha </Text>
+                </TouchableOpacity>
+            </View>
+            </View>
     )
 }
 
@@ -41,31 +41,25 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     addFriendWrapper: {
-        padding: 20,
-    },
-    addFriendTitle: {
-        fontSize: 30,
-        textAlign: 'center',
-        paddingBottom: 130,
-        paddingTop: 50
-    },
-    addFriendField: {
-        borderWidth: 1,
-        borderColor: colors.blackFont,
-        padding: 8,
-        margin: 10,
-        width: 250,
+        flexDirection: 'row',
         alignSelf: 'center',
+        paddingHorizontal: 20,
+        paddingTop: 50,
     },
-    addFriendButton: {
+    gachaWrapper: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        paddingHorizontal: 20,
+        paddingTop: 30,
+    },
+    buttonStyle: {
         elevation: 8,
         backgroundColor: colors.buttons,
         borderRadius: 10,
         paddingVertical: 10,
         paddingHorizontal: 12,
-        
     },
-    addFriendButtonText: {
+    buttonText: {
         fontSize: 18,
         color: "#fff",
         fontWeight: "bold",

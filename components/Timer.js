@@ -15,7 +15,7 @@ import {Keyboard} from 'react-native'
 import getUsername from '../src/getUsername';
 import { supabase } from '../lib/supabase';
 
-export default function Timer ({ navigation }) {
+export default function Timers ({ navigation }) {
     async function updatePoints({points}) {
 
         const user = supabase.auth.user();
@@ -65,7 +65,9 @@ export default function Timer ({ navigation }) {
                 <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Ionicons name = "arrow-back" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
-                <Feather name = "settings" size ={40} color = {colors.blanks} />
+                <TouchableOpacity onPress={()=> navigation.navigate('Settings')}>
+                    <Feather name = "settings" size ={40} color = {colors.blanks} />
+                </TouchableOpacity>
             </View>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style = {styles.countdownWrapper}>

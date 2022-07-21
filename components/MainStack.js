@@ -5,6 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Timer from './Timer'
 import Leaderboard from './Leaderboard'
 import Statistics from './Statistics'
+import Friends from './Friends'
+import OrderType from './OrderType'
+import Settings from './Settings'
+import Gacha from './Gacha'
 
 const Stack  = createStackNavigator();
 
@@ -19,6 +23,10 @@ export function MainScreenStack() {
           component = {Account}
         />
         <Stack.Screen
+          name = "OrderType"
+          component = {OrderType}
+        />
+        <Stack.Screen
           name = "Timer"
           component = {Timer}
         />
@@ -29,6 +37,18 @@ export function MainScreenStack() {
         <Stack.Screen
           name = "Statistics"
           component = {Statistics}
+        />
+         <Stack.Screen
+          name = "Settings"
+          component = {Settings}
+        />
+        <Stack.Screen
+          name = "Friends"
+          component = {Friends}
+        />
+        <Stack.Screen
+          name = "Gacha"
+          component = {Gacha}
         />
       </Stack.Navigator>
 

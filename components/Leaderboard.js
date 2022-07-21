@@ -44,7 +44,9 @@ export default function Leaderboard ({ navigation }) {
             <TouchableOpacity onPress={()=> navigation.goBack()}>
                 <Ionicons name = "arrow-back" size = {40} color = {colors.blanks} />
             </TouchableOpacity>
+            <TouchableOpacity onPress={()=> navigation.navigate('Settings')}>
                 <Feather name = "settings" size ={40} color = {colors.blanks} />
+            </TouchableOpacity>
             </View>
             <View style = {styles.leaderboardWrapper}>
                 <Text style = {styles.leaderboardTitle}>Leaderboard</Text>
@@ -58,7 +60,7 @@ export default function Leaderboard ({ navigation }) {
             </View>
             <View style = {styles.bottomWrapper}>
                 <FontAwesome5 name = "user-friends" size = {40} color = {colors.buttons} />
-                <TouchableOpacity onPress={() => navigation.navigate('Timer')}>
+                <TouchableOpacity onPress={() => navigation.navigate('OrderType')}>
                     <AntDesign name = "pluscircleo" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress = {() => navigation.navigate('Statistics')}>

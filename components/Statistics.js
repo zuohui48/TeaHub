@@ -9,6 +9,7 @@ import colors from '../assets/colors/colors';
 import { FlatList } from 'react-native-gesture-handler';
 import statisticsData from '../data/statisticsdata';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Friends from './Friends';
 
 export default function Statistics ({ navigation }) {
     
@@ -29,7 +30,7 @@ export default function Statistics ({ navigation }) {
                 <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Ionicons name = "arrow-back" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> navigation.navigate('Friends')}>
+                <TouchableOpacity onPress={()=> navigation.navigate('Settings')}>
                     <Feather name = "settings" size ={40} color = {colors.blanks} />
                 </TouchableOpacity>
             </View>
@@ -46,7 +47,7 @@ export default function Statistics ({ navigation }) {
                 <TouchableOpacity onPress = {() => navigation.navigate('Leaderboard')}>
                     <FontAwesome5 name = "user-friends" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => navigation.navigate('Timer')}>
+                <TouchableOpacity onPress = {() => navigation.navigate('OrderType')}>
                     <AntDesign name = "pluscircleo" size = {40} color = {colors.blanks} />
                 </TouchableOpacity>
                     <MaterialIcons name = "leaderboard" size = {40} color = {colors.buttons} />
