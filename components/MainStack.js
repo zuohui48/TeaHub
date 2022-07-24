@@ -9,6 +9,7 @@ import Friends from './Friends'
 import OrderType from './OrderType'
 import Settings from './Settings'
 import Gacha from './Gacha'
+import GroupOrder from './GroupOrder'
 
 const Stack  = createStackNavigator();
 
@@ -49,6 +50,11 @@ export function MainScreenStack() {
         <Stack.Screen
           name = "Gacha"
           component = {Gacha}
+        />
+
+        <Stack.Screen
+          name = "GroupOrder"
+          component = {GroupOrder}
         />
       </Stack.Navigator>
 

@@ -30,7 +30,7 @@ export default function OrderType ({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View style = {styles.orderTypeButtonsWrapper}>
-                <TouchableOpacity
+                <TouchableOpacity onPress={()=> navigation.navigate('GroupOrder')}
                     style = {styles.buttonStyle}>
                     <Text style = {styles.buttonText}> Group Order </Text>
                 </TouchableOpacity>
