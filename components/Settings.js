@@ -2,7 +2,6 @@ import 'react-native-gesture-handler';
 import { Text, StyleSheet, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../assets/colors/colors';
-
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Settings ({ navigation }) {
@@ -26,7 +25,13 @@ export default function Settings ({ navigation }) {
                     <Text style = {styles.buttonText}> Gacha </Text>
                 </TouchableOpacity>
             </View>
+            <View style = {styles.notificationsWrapper}>
+                <TouchableOpacity onPres={()=> navigation.navigate('NotificationsPage')}
+                style = {styles.buttonStyle}>
+                    <Text style = {styles.buttonText}> Notifications </Text>
+                </TouchableOpacity>
             </View>
+        </View>
     )
 }
 
@@ -47,6 +52,12 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     gachaWrapper: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        paddingHorizontal: 20,
+        paddingTop: 30,
+    },
+    notificationsWrapper: {
         flexDirection: 'row',
         alignSelf: 'center',
         paddingHorizontal: 20,
