@@ -121,7 +121,7 @@ export default function Account({ session }: { session: Session }) {
 			
 		<View style = {stylesheet._2_Light_carousel_3}>
 			<View style = {[stylesheet._Fill_your_Profile, {display: "flex", flexDirection: "row", alignItems: "center"}]}>
-			<Text style = {[stylesheet._Fill_your_Profile, {position: "relative", left: 13, top: 0, height: "auto", transform: [{translateX: 0}, {translateY: 0}],}]}>
+			<Text style = {[stylesheet._Fill_your_Profile, {position: "relative", left: 0, top: 0, height: "auto", transform: [{translateX: 0}, {translateY: 0}],}]}>
 				Complete your Profile
 			</Text>
 			</View>
@@ -291,7 +291,7 @@ const stylesheet = StyleSheet.create({
 		fontWeight: '500',
 		textDecorationLine: "none",
 		lineHeight: 110.00000238418579,
-		fontSize: 40,
+		fontSize: 30,
 		color: "rgba(33, 33, 33, 1)",
 		textAlign: "center",
 		textAlignVertical: "center",
@@ -394,17 +394,11 @@ const stylesheet = StyleSheet.create({
 		height: 43,
 		borderRadius: 190,
 		opacity: 1,
-		left: 10,
+		left: 5,
 		right: "auto",
 		top: 397,
 		bottom: "auto",
-		transform: [
-			{translateX: 0},
-			{translateY: 0},
-			{rotate: "0deg"},
-		],
 		backgroundColor: "rgba(217, 217, 217, 1)",
-		borderTopEndRadius: 2,
 	},
 	_Rectangle_2: {
 		position: "absolute",
@@ -412,15 +406,10 @@ const stylesheet = StyleSheet.create({
 		height: 43,
 		borderRadius: 190,
 		opacity: 1,
-		left: 10,
+		left: 5,
 		right: "auto",
 		top: 476,
 		bottom: "auto",
-		transform: [
-			{translateX: 0},
-			{translateY: 0},
-			{rotate: "0deg"},
-		],
 		backgroundColor: "rgba(217, 217, 217, 1)",
 	},
 	_Rectangle_3: {
@@ -513,15 +502,10 @@ const stylesheet = StyleSheet.create({
 		width: 189,
 		height: 189,
 		borderRadius: 1000,
-		left: 114,
+		left: 100,
 		right: "auto",
 		top: 169,
 		bottom: "auto",
-		transform: [
-			{translateX: 0},
-			{translateY: 0},
-			{rotate: "0deg"},
-		],
 	},
 	logo: {
 		position: "relative",

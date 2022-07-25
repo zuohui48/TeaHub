@@ -48,7 +48,7 @@ export default function Gacha ({ navigation }) {
                 source = {require("../images/gacha.png")}/>
             </View>
             <View>
-            <TouchableOpacity onPress={() => Alert.alert("Congratualations! You got " + rand + " !")}
+            <TouchableOpacity onPress={() => Alert.alert("Congratualations! You got " + rand() + " !")}
             style = {styles.buttonStyle}>
                 <Text style = {styles.buttonText}>Draw</Text>
             </TouchableOpacity>
