@@ -15,17 +15,23 @@ import {Keyboard} from 'react-native'
 import getUsername from '../src/getUsername';
 import { supabase } from '../lib/supabase';
 
-export default function Timers ({ navigation }) {
+export default function Timer ({ navigation }) {
+
+    const [duration, setDuration] = useState(0)
+    const [isPlaying, setIsPlaying] = useState(false)
+    const [canStart, setCanStart] = useState(false)
+    const [canEdit, setCanEdit] = useState(true)
+    
     async function updatePoints({points}) {
 
         const user = supabase.auth.user();
         if (!user) throw new Error("No user on the session!");
         
         const updates = {
-          id: user.id,
-          pts: points,
-          username: getUsername,
-          created_at: new Date(),
+          "id": user.id,
+          "pts": points,
+          "username": getUsername,
+          "created_at": new Date(),
         };
     
         let { error } = await supabase
@@ -44,11 +50,6 @@ export default function Timers ({ navigation }) {
         Alert.alert('Order Complete!')
     }
 
-    const [duration, setDuration] = useState(0)
-    const [isPlaying, setIsPlaying] = useState(false)
-    const [canStart, setCanStart] = useState(false)
-    const [canEdit, setCanEdit] = useState(true)
-    
     function startButton() {
         updatePoints(duration + getPoints)
         setIsPlaying(true)

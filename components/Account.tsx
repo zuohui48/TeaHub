@@ -113,7 +113,7 @@ export default function Account({ session }: { session: Session }) {
 
   async function goToTimer({username},{naviagtion}) {
 	insertPoints({username})
-	navigation.navigate("Timer") 
+	navigation.navigate("OrderType") 
   }
 
 	return (
@@ -132,7 +132,7 @@ export default function Account({ session }: { session: Session }) {
         			disabled={loading}
         />
 		<Button 
-        			title ={loading ? "Loading ..." : "Timer"}
+        			title ={loading ? "Loading ..." : "Start"}
         			onPress={() => goToTimer({username}, {navigation})}
         			disabled={loading}
         />
