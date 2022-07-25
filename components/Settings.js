@@ -19,15 +19,15 @@ export default function Settings ({ navigation }) {
                     <Text style = {styles.buttonText}> Add Friends </Text>
                 </TouchableOpacity>
             </View>
-            <View style = {styles.gachaWrapper}>
-                <TouchableOpacity onPres={()=> navigation.navigate('Gacha')}
-                style = {styles.buttonStyle}>
+            <View style = {styles.addFriendWrapper}>
+                <TouchableOpacity onPress={()=> navigation.navigate('Gacha')}
+                    style = {styles.buttonStyle}>
                     <Text style = {styles.buttonText}> Gacha </Text>
                 </TouchableOpacity>
             </View>
-            <View style = {styles.notificationsWrapper}>
-                <TouchableOpacity onPres={()=> navigation.navigate('NotificationsPage')}
-                style = {styles.buttonStyle}>
+            <View style = {styles.addFriendWrapper}>
+                <TouchableOpacity onPress={()=> navigation.navigate('NotificationsPage')}
+                    style = {styles.buttonStyle}>
                     <Text style = {styles.buttonText}> Notifications </Text>
                 </TouchableOpacity>
             </View>

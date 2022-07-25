@@ -7,10 +7,10 @@ import Leaderboard from './Leaderboard'
 import Statistics from './Statistics'
 import Friends from './Friends'
 import OrderType from './OrderType'
-import Settings from './Settings'
 import Gacha from './Gacha'
 import GroupOrder from './GroupOrder'
 import NotificationsPage from './NotificationsPage'
+import Settings from './Settings'
 
 const Stack  = createStackNavigator();
 
@@ -33,6 +33,10 @@ export function MainScreenStack() {
           component = {Timer}
         />
         <Stack.Screen
+          name = "Settings"
+          component = {Settings}
+        />
+        <Stack.Screen
           name = "Leaderboard"
           component = {Leaderboard}
         />
@@ -41,10 +45,10 @@ export function MainScreenStack() {
           component = {Statistics}
         />
          <Stack.Screen
-          name = "Settings"
-          component = {Settings}
+          name = "NotificationsPage"
+          component = {NotificationsPage}
         />
-        <Stack.Screen
+         <Stack.Screen
           name = "Friends"
           component = {Friends}
         />
@@ -55,10 +59,6 @@ export function MainScreenStack() {
         <Stack.Screen
           name = "GroupOrder"
           component = {GroupOrder}
-        />
-        <Stack.Screen
-          name = "NotificationsPage"
-          component = {NotificationsPage}
         />
       </Stack.Navigator>
 
